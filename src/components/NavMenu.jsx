@@ -19,7 +19,7 @@ const NavMenu = ({ count }) => {
   }
 
   return (
-    <Navbar bg="dark" data-bs-theme="dark" style={{ marginBottom: 20, zIndex: 999 }} className='shadow-lg position-sticky t-0' >
+    <Navbar bg="dark" data-bs-theme="dark" style={{ marginBottom: 20, zIndex: 999,position:"sticky",top:0 }} className='shadow-lg' >
       <div className='container-fluid px-3'>
         <div className='d-none d-sm-flex justify-content-between w-100 align-items-center'>
           <Navbar.Brand className='fs-3'>Amazon</Navbar.Brand>

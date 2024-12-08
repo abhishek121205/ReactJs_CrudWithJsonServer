@@ -29,7 +29,8 @@ function App() {
 
   const getData = async () => {
     try {
-      let data = await axios.get("http://localhost:3000/products");
+      // let data = await axios.get("http://localhost:3000/products");
+      let data = await axios.get("https://reactjs-crudwithjsonserver.onrender.com/products");
       setProducts(data.data);
     } catch (error) {
       console.log(error);
@@ -38,7 +39,8 @@ function App() {
 
   const deleteData = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/products/${id}`)
+      // await axios.delete(`http://localhost:3000/products/${id}`)
+      await axios.delete(`https://reactjs-crudwithjsonserver.onrender.com/products/${id}`)
       getData()
     } catch (error) {
       console.error("error in deleting product")
@@ -47,7 +49,8 @@ function App() {
 
   const addProduct = async (product) => {
     try {
-      await axios.post("http://localhost:3000/products", product);
+      // await axios.post("http://localhost:3000/products", product);
+      await axios.post("https://reactjs-crudwithjsonserver.onrender.com/products", product);
       getData()
     } catch (error) {
       console.error("Error adding product:", error);
@@ -62,7 +65,8 @@ function App() {
         price: product.price,
         img: product.img
       }
-      await axios.patch(`http://localhost:3000/products/${id}`, payload);
+      // await axios.patch(`http://localhost:3000/products/${id}`, payload);
+      await axios.patch(`https://reactjs-crudwithjsonserver.onrender.com/products/${id}`, payload);
       getData()
       navigate("/viewProduct")
     } catch (error) {
@@ -76,7 +80,8 @@ function App() {
 
   const getCartProduct = async (id) => {
     try {
-      let data = await axios.get(`http://localhost:3000/products/${id}`);
+      // let data = await axios.get(`http://localhost:3000/products/${id}`);
+      let data = await axios.get(`https://reactjs-crudwithjsonserver.onrender.com/products/${id}`);
       addToCartFun(data.data);
     } catch (error) {
       console.log(error);
@@ -85,7 +90,7 @@ function App() {
 
   const addToCartFun = async (product) => {
     try {
-      await axios.post("http://localhost:3000/cart", product);
+      await axios.post("https://reactjs-crudwithjsonserver.onrender.com/cart", product);
       getCartData();
     } catch (error) {
       console.log(error);
@@ -94,7 +99,8 @@ function App() {
 
   const getCartData = async () => {
     try {
-      let data = await axios.get("http://localhost:3000/cart");
+      // let data = await axios.get("http://localhost:3000/cart");
+      let data = await axios.get("https://reactjs-crudwithjsonserver.onrender.com/cart");
       setCartProduct(data.data);
     } catch (error) {
       console.log(error);
@@ -103,7 +109,8 @@ function App() {
 
   const deleteCartProduct = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/cart/${id}`);
+      // await axios.delete(`http://localhost:3000/cart/${id}`);
+      await axios.delete(`https://reactjs-crudwithjsonserver.onrender.com/cart/${id}`);
       getCartData();
     } catch (error) {
       console.log(error);
